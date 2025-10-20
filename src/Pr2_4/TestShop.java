@@ -1,11 +1,11 @@
 package Pr2_4;
-
-        import java.util.Scanner;
-
+import java.util.Scanner;
+// Класс для тестирования магазина
 public class TestShop {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Shop shop = new Shop(5); // Максимум 5 компьютеров
+        // Создаем магазин на 5 компьютеров
+        Shop shop = new Shop(5);
 
         // Добавим несколько компьютеров вручную
         Computer comp1 = new Computer("Dell", "XPS 13", 1200.0);
@@ -33,19 +33,23 @@ public class TestShop {
         // Ввод с клавиатуры
         System.out.println("\n--- Интерфейс добавления ---");
         System.out.print("Введите бренд: ");
-        String brand = scanner.nextLine();
+        String brand = scanner.nextLine(); // считываем строку
         System.out.print("Введите модель: ");
         String model = scanner.nextLine();
         System.out.print("Введите цену: ");
-        double price = scanner.nextDouble();
-        scanner.nextLine(); // Очистка буфера
+        double price = scanner.nextDouble(); // считываем число
+        scanner.nextLine(); // *** ВАЖНО! *** Очищаем буфер после nextDouble,
+        // иначе следующий nextLine() возьмет оставшуюся строку
 
+        // Создаем новый компьютер из ввода
         Computer userComp = new Computer(brand, model, price);
+        // Добавляем его в магазин
         shop.addComputer(userComp);
 
         System.out.println("\nФинальное состояние магазина:");
         shop.printShop();
 
+        // Закрываем Scanner
         scanner.close();
     }
 }

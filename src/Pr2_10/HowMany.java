@@ -1,19 +1,22 @@
 package Pr2_10;
-        import java.util.Scanner;
+import java.util.Scanner;
+
+// Программа, считающая количество слов в строке
 public class HowMany {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите строку:");
-        String input = scanner.nextLine();
+        String input = scanner.nextLine(); // считываем всю строку
 
-        // Разбиваем строку по пробелам
-        String[] words = input.split("\\s+"); // \\s+ означает один или несколько пробельных символов
+        // Разбиваем строку на "кусочки" по пробелам
+        // split("\\s+") означает: разделяй по одному или нескольким пробельным символам
+        String[] words = input.split("\\s+");
 
-        // Убираем пустые строки, которые могут появиться в начале/конце
+        // Считаем количество "не пустых" кусочков
         int count = 0;
-        for (String word : words) {
-            if (!word.isEmpty()) {
-                count++;
+        for (String word : words) { // для каждого "кусочка" в массиве
+            if (!word.isEmpty()) { // если кусочек не пустой
+                count++; // увеличиваем счётчик
             }
         }
 

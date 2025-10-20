@@ -1,16 +1,19 @@
 package Pr2_7;
-
+// Класс Book (книга)
 public class Book {
+    // Поля - автор, название, год
     private String title;
     private String author;
     private int year;
 
+    // Конструктор
     public Book(String title, String author, int year) {
         this.title = title;
         this.author = author;
         this.year = year;
     }
 
+    // Геттеры и сеттеры
     public String getTitle() {
         return title;
     }
@@ -35,6 +38,7 @@ public class Book {
         this.year = year;
     }
 
+    // Метод toString
     @Override
     public String toString() {
         return "Book[title=" + title + ", author=" + author + ", year=" + year + "]";
